@@ -11,7 +11,7 @@ Implementation of NFormer: Robust Person Re-identification with Neighbor Transfo
  - Python3
  - pytorch>=0.4
  - torchvision
- - ignite=0.1.2 (Note: V0.2.0 may result in an error)
+ - python-ignite=0.1.2 (Note: V0.2.0 may result in an error)
  - yacs
 ## Hardware
  - 1 NVIDIA 3090 Ti
@@ -19,7 +19,7 @@ Implementation of NFormer: Robust Person Re-identification with Neighbor Transfo
 ## Dataset
 Create a directory to store reid datasets under this repo or outside this repo. Set your path to the root of the dataset in `config/defaults.py` or set in scripts `Experiment-all_tricks-tri_center-market.sh` and `Test-all_tricks-tri_center-feat_after_bn-cos-market.sh`.
 #### Market1501
-* Download dataset to `data/` from http://www.liangzheng.org/Project/project_reid.html
+* Download dataset to `data/` from https://zheng-lab.cecs.anu.edu.au/Project/project_reid.html
 * Extract dataset and rename to `market1501`. The data structure would like:
 
 ```bash
@@ -33,6 +33,7 @@ Create a directory to store reid datasets under this repo or outside this repo. 
 
 
 ## Training
+download the pretrained [resnet50](https://download.pytorch.org/models/resnet50-19c8e357.pth) model and set the path at line 
 run `Experiment-all_tricks-tri_center-market.sh` to train NFormer on Market-1501 dataset
 ```
 sh Experiment-all_tricks-tri_center-market.sh
