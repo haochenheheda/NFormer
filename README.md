@@ -4,7 +4,7 @@ Implementation of NFormer: Robust Person Re-identification with Neighbor Transfo
 
 ## Pipeline
 <div align=center>
-<img src='imgs/pipeline.jpg' width='800'>
+<img src='pipeline.jpg' width='800'>
 </div>
 
 ## Requirements
