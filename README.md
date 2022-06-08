@@ -1,7 +1,11 @@
 # NFormer
 
 Implementation of NFormer: Robust Person Re-identification with Neighbor Transformer. CVPR2022
-Picture
+
+## Pipeline
+<div align=center>
+<img src='imgs/pipeline.jpg' width='800'>
+</div>
 
 ## Requirements
  - Python3
