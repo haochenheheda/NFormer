@@ -101,6 +101,8 @@ _C.SOLVER = CN()
 _C.SOLVER.OPTIMIZER_NAME = "Adam"
 # Number of max epoches
 _C.SOLVER.MAX_EPOCHS = 50
+# Number of nformer max epoches
+_C.SOLVER.NFORMER_MAX_EPOCHS = 20
 # Base learning rate
 _C.SOLVER.BASE_LR = 3e-4
 # Factor of learning bias

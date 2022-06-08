@@ -305,6 +305,7 @@ def do_train_with_center(
     output_dir = cfg.OUTPUT_DIR
     device = cfg.MODEL.DEVICE
     epochs = cfg.SOLVER.MAX_EPOCHS
+    nformer_epochs = cfg.SOLVER.NFORMER_MAX_EPOCHS
 
     logger = logging.getLogger("reid_baseline.train")
     logger.info("Start training")
@@ -369,12 +370,12 @@ def do_train_with_center(
     def tarin_nformer(engine):
         if engine.state.epoch < epochs:
             return
-        for n_epoch in range(epochs//4):
+        for n_epoch in range(nformer_epochs):
             data_generator.run(train_loader)
             nformer_dataset = NFormerDataset(data_generator.state.metrics['data'])
             nformer_trainloader = data.DataLoader(nformer_dataset, batch_size=2, num_workers=1,shuffle = True, pin_memory=True)
             nformer_trainer.run(nformer_trainloader, max_epochs=1)
-            if n_epoch%5 == 0:
+            if (n_epoch+1)%5 == 0:
                 print('evaluate nformer at epoch {}'.format(n_epoch))
                 nformer_evaluator.run(val_loader)
                 cmc, mAP = nformer_evaluator.state.metrics['r1_mAP']
