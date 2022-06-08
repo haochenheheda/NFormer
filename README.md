@@ -33,7 +33,8 @@ Create a directory to store reid datasets under this repo or outside this repo. 
 
 
 ## Training
-download the pretrained [resnet50](https://download.pytorch.org/models/resnet50-19c8e357.pth) model and set the path at line 
+download the pretrained [resnet50](https://download.pytorch.org/models/resnet50-19c8e357.pth) model and set the path at [line3](configs/softmax_triplet_with_center.yml)
+
 run `Experiment-all_tricks-tri_center-market.sh` to train NFormer on Market-1501 dataset
 ```
 sh Experiment-all_tricks-tri_center-market.sh
