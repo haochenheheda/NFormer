@@ -11,6 +11,11 @@ Picture
  - yacs
 
 ## Dataset
+Create a directory to store reid datasets under this repo or outside this repo. Set your path to the root of the dataset in `config/defaults.py` or set in scripts `x` and `x`.
+
+### Market1501
+
+
 
 ## Training
 
