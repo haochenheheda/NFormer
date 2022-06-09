@@ -11,7 +11,7 @@ Implementation of NFormer: Robust Person Re-identification with Neighbor Transfo
  - Python3
  - pytorch>=0.4
  - torchvision
- - python-ignite=0.1.2 (Note: V0.2.0 may result in an error)
+ - pytorch-ignite=0.1.2 (Note: V0.2.0 may result in an error)
  - yacs
 ## Hardware
  - 1 NVIDIA 3090 Ti
