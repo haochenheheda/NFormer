@@ -117,6 +117,7 @@ class Attention(nn.Module):
         bs,hn,dl,_ = w.shape
         rns_indices = rns_indices.unsqueeze(1).repeat(1,hn,1,1)
         mask = torch.zeros_like(w).scatter_(3, rns_indices,torch.ones_like(rns_indices, dtype=w.dtype))
+        mask = mask * mask.transpose(2,3)
         if 'cuda' in str(w.device):
             mask = mask.cuda()
         else:
@@ -213,7 +214,7 @@ class NFormer(nn.Module):
         self.num_landmark = cfg.MODEL.LANDMARK
 
     def forward(self, x):
-        _, rns_indices = torch.topk(torch.bmm(x,x.transpose(1,2)), self.topk, dim=2)
+        _, rns_indices = torch.topk(torch.bmm(x/torch.norm(x,p=2,dim=2,keepdim=True),(x/torch.norm(x,p=2,dim=2,keepdim=True)).transpose(1,2)), self.topk, dim=2)
         for block in self.h:
             x = block(x, self.num_landmark, rns_indices)
 
